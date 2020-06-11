@@ -20,5 +20,4 @@ html = get_html(url, username)
 for el in html.select('.js-calendar-graph-svg > g > g > .day'):
     date = el['data-date']
     date_obj = datetime.strptime(date, '%Y-%m-%d')
-    # print(date_obj)
     print(f"Commits: {el['data-count']}, Date: {date_obj}")
