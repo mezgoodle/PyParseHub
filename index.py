@@ -20,16 +20,16 @@ def get_html(url, username):
     return BS(r.content, 'html.parser')
 
 
-def today_info(data):
-    print(f"Today: {data['data-date']}")
+def day_info(data):
+    print(f"Date: {data['data-date']}")
     print(f"Commits: {data['data-count']}")
 
 
 html = get_html(url, username)
 data = html.select('.js-calendar-graph-svg > g > g > .day')
-today_info(data[-1])
-# for el in data:
-#     today = get_today()
-#     date = el['data-date']
-#     date_obj = datetime.strptime(date, '%Y-%m-%d').strftime("%Y-%m-%d")
-#     print(f"Commits: {el['data-count']}, Today: {date_obj == today}")
+day_info(data[-1])
+five_day_data = data[-5:]
+five_day_data.reverse()
+
+for el in five_day_data:
+    day_info(el)
