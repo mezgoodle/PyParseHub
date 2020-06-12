@@ -10,6 +10,11 @@ HEADERS = {
 }
 
 
+def get_today():
+    cur_date = datetime.now()
+    return cur_date.strftime("%Y-%m-%d")
+
+
 def get_html(url, username):
     r = requests.get('https://github.com/' + username, headers=HEADERS)
     return BS(r.content, 'html.parser')
@@ -18,6 +23,7 @@ def get_html(url, username):
 html = get_html(url, username)
 
 for el in html.select('.js-calendar-graph-svg > g > g > .day'):
+    today = get_today()
     date = el['data-date']
-    date_obj = datetime.strptime(date, '%Y-%m-%d')
-    print(f"Commits: {el['data-count']}, Date: {date_obj}")
+    date_obj = datetime.strptime(date, '%Y-%m-%d').strftime("%Y-%m-%d")
+    print(f"Commits: {el['data-count']}, Today: {date_obj == today}")
