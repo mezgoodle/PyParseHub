@@ -21,10 +21,7 @@ def get_html(url, username):
 
 
 def today_info(data):
-    today = get_today()
-    date = data['data-date']
-    date_obj = datetime.strptime(date, '%Y-%m-%d').strftime("%Y-%m-%d")
-    print(f'Today: {today}')
+    print(f"Today: {data['data-date']}")
     print(f"Commits: {data['data-count']}")
 
 
