@@ -22,7 +22,7 @@ def index_get():
 @app.route('/', methods=['POST'])
 def index_post():
     data = {
-        'commits': [],
+        'contributions': [],
         'date': [],
     }
     day_limit = -6
@@ -33,11 +33,11 @@ def index_post():
     six_day_data = data_html[day_limit:]
     six_day_data.reverse()
     for day in six_day_data:
-        data['commits'].append(day['data-count'])
+        data['contributions'].append(day['data-count'])
         data['date'].append(day['data-date'])
 
-    return render_template("index.html", data=data)
+    return render_template("index.html", data=data, len=len(data['date']))
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)

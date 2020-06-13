@@ -36,8 +36,24 @@
     </form>
     <!-- Default form -->
     {% if data %}
-    {{data}}
-    <canvas id="myChart"></canvas>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Date</th>
+          <th scope="col">Contributions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for x in range(len) %}
+        <tr>
+          <th scope="row">{{x}}</th>
+          <td>{{ data['date'][x] }}</td>
+          <td>{{ data['contributions'][x] }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
     {% endif %}
   </div>
     <!-- JQuery -->
@@ -48,47 +64,5 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.0/js/mdb.min.js"></script>
-    <!-- Own script -->
-    <script type="text/javascript">
-        let ctx = document.getElementById("myChart").getContext('2d');
-        let myChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-          labels: {{data['date']}},
-          datasets: [{
-          label: '# of Commits',
-          data: {{data['commits']}},
-          backgroundColor: [
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
-            'rgba(255, 206, 86, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(153, 102, 255, 0.2)',
-            'rgba(255, 159, 64, 0.2)',
-            'rgba(0, 0, 0, 0.2)'
-          ],
-          borderColor: [
-            'rgba(255,99,132,1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(153, 102, 255, 1)',
-            'rgba(255, 159, 64, 1)',
-            'rgba(0, 0, 0, 1)'
-          ],
-          borderWidth: 1
-          }]
-        },
-        options: {
-          scales: {
-          yAxes: [{
-            ticks: {
-            beginAtZero: true
-            }
-          }]
-          }
-        }
-        });
-    </script>
 </body>
 </html>
