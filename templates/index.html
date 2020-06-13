@@ -15,18 +15,18 @@
 </head>
 <body>
   <div class="container-fluid">
-    <!-- Default form login -->
-    <form class="text-center border-light border-bottom p-5" action="#!">
+    <!-- Default form -->
+    <form class="text-center border-light border-bottom p-5" method="POST">
 
         <p class="h4 mb-4">PyParseHub</p>
 
-        <!-- Email -->
-        <input type="text" id="defaultFormEmail" class="form-control mb-4" placeholder="Nickname">
+        <!-- Username -->
+        <input type="text" id="defaultFormText" name="username" required class="form-control mb-4" placeholder="Nickname">
 
-        <!-- Sign in button -->
+        <!-- Search button -->
         <button class="btn btn-info btn-block my-4" type="submit">Search</button>
 
-        <!-- Social login -->
+        <!-- Social llinks -->
         <p>Links</p>
 
         <a href="https://www.facebook.com/profile.php?id=100005721694357" class="mx-2" role="button" title="Author page"><i class="fab fa-facebook-f light-blue-text"></i></a>
@@ -34,8 +34,10 @@
         <a href="https://github.com/mezgoodle/PyParseHub" class="mx-2" role="button" title="Project repository"><i class="fab fa-github light-blue-text"></i></a>
 
     </form>
-    <!-- Default form login -->
+    <!-- Default form -->
+    {% if data %}
     <canvas id="myChart"></canvas>
+    {% endif %}
   </div>
     <!-- JQuery -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
