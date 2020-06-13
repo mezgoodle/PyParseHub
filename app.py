@@ -1,7 +1,9 @@
 import requests
 from bs4 import BeautifulSoup as BS
+from flask import Flask, render_template
 from datetime import datetime
 
+app = Flask(__name__)
 username = 'mezgoodle'
 url = 'https://github.com/'
 HEADERS = {
@@ -33,3 +35,10 @@ five_day_data.reverse()
 
 for el in five_day_data:
     day_info(el)
+
+@app.route('/')
+def index():
+    return render_template("index.html")
+
+if __name__ == "__main__":
+    app.run()
