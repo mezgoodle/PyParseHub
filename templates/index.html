@@ -36,6 +36,7 @@
     </form>
     <!-- Default form -->
     {% if data %}
+    {{data}}
     <canvas id="myChart"></canvas>
     {% endif %}
   </div>
@@ -48,15 +49,15 @@
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.0/js/mdb.min.js"></script>
     <!-- Own script -->
-    <script>
+    <script type="text/javascript">
         let ctx = document.getElementById("myChart").getContext('2d');
         let myChart = new Chart(ctx, {
         type: 'bar',
         data: {
-          labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange", "Black"],
+          labels: {{data['date']}},
           datasets: [{
           label: '# of Commits',
-          data: [12, 19, 3, 5, 2, 3, 4],
+          data: {{data['commits']}},
           backgroundColor: [
             'rgba(255, 99, 132, 0.2)',
             'rgba(54, 162, 235, 0.2)',

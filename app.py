@@ -21,14 +21,24 @@ def index_get():
 
 @app.route('/', methods=['POST'])
 def index_post():
+    commits, date = [], []
+    day_limit = -6
     url = 'https://github.com/'
     username = request.form['username']
     html = get_html(url, username)
     data = html.select('.js-calendar-graph-svg > g > g > .day')
-    six_day_data = data[-5:]
+    six_day_data = data[day_limit:]
     six_day_data.reverse()
-    print(six_day_data)
-    return render_template("index.html")
+    for day in six_day_data:
+        commits.append(day['data-count'])
+        date.append(day['data-date'])
+    print(commits)
+    print(date)
+    data = {
+        'commits': commits,
+        'date': date,
+    }
+    return render_template("index.html", data=data)
 
 
 if __name__ == "__main__":
