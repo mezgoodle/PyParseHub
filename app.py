@@ -25,14 +25,14 @@ def index_post():
         'contributions': [],
         'date': [],
     }
-    day_limit = -6
     url = 'https://github.com/'
     username = request.form['username']
+    day_limit = int(request.form['daylimit'])
     html = get_html(url, username)
     data_html = html.select('.js-calendar-graph-svg > g > g > .day')
-    six_day_data = data_html[day_limit:]
-    six_day_data.reverse()
-    for day in six_day_data:
+    day_data = data_html[-day_limit:]
+    day_data.reverse()
+    for day in day_data:
         data['contributions'].append(day['data-count'])
         data['date'].append(day['data-date'])
 
