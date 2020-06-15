@@ -12,6 +12,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
     <!-- Material Design Bootstrap -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.0/css/mdb.min.css" rel="stylesheet">
+    <!-- Icon -->
+    <link rel="shortcut icon" href="{{url_for('static', filename='img/icon.png')}}">
 </head>
 <body>
   <div class="container-fluid">
@@ -21,7 +23,15 @@
         <p class="h4 mb-4">PyParseHub</p>
 
         <!-- Username -->
-        <input type="text" id="defaultFormText" name="username" required class="form-control mb-4" placeholder="Nickname">
+        <div class="md-form">
+            <input type="text" id="defaultFormText" name="username" required class="form-control mb-4 validate" placeholder="Nickname">
+            <label for="form1">Your GitHub nickname</label>
+        </div>
+        
+        <!-- Day limit -->
+        <div class="md-form">
+            <input type="number" id="dayLimit" class="form-control" name="dayLimit" value="6" min="1" max="10">
+        </div>
 
         <!-- Search button -->
         <button class="btn btn-info btn-block my-4" type="submit">Search</button>
