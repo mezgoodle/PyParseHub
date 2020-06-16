@@ -24,11 +24,12 @@ def index_post():
     data = {
         'contributions': [],
         'date': [],
+        'username': '',
     }
     url = 'https://github.com/'
-    username = request.form['username']
+    data['username'] = request.form['username']
     day_limit = int(request.form['daylimit'])
-    html = get_html(url, username)
+    html = get_html(url, data['username'])
     data_html = html.select('.js-calendar-graph-svg > g > g > .day')
     day_data = data_html[-day_limit:]
     day_data.reverse()

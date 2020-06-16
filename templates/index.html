@@ -24,7 +24,7 @@
 
         <!-- Username -->
         <div class="md-form">
-            <input type="text" id="defaultFormText" name="username" required class="form-control mb-4 validate" placeholder="Nickname">
+            <input type="text" id="defaultFormText" name="username" value="{% if data %}{{data['username']}}{% endif %}" required class="form-control mb-4 validate" placeholder="Nickname">
             <label for="form1">Your GitHub nickname</label>
         </div>
         
