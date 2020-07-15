@@ -85,7 +85,7 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 Video which inspired me to build this project:
 
-- https://www.youtube.com/watch?v=TpJ3Cu8WBC8
+- [Video](https://www.youtube.com/watch?v=TpJ3Cu8WBC8)
 
 ## License
 
