@@ -18,9 +18,9 @@ This is my first experience with parsing web pages. I have had the idea to get s
 
 ## Screenshots
 
-![Screenshot 1](https://github.com/mezgoodle/images/blob/master/pyparsehub1.png)
+![Screenshot 1](https://raw.githubusercontent.com/mezgoodle/images/master/pyparsehub1.png)
 
-![Screenshot 2](https://github.com/mezgoodle/images/blob/master/pyparsehub2.png)
+![Screenshot 2](https://raw.githubusercontent.com/mezgoodle/images/master/pyparsehub2.png)
 
 
 ## Tech/framework used
